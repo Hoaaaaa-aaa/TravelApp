@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TravelApp</string>
+    <string name="introTitle">Explorer the<font color='#7EA00E'> World</font> with us</string>
+    <string name="subIntro">Traveling unveils a world of new adventures, diverse\n cultures, and unforgettable experiences that broaden your horizons.</string>
+</resources>
