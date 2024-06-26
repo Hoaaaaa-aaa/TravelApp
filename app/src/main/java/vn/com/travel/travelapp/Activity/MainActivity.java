@@ -18,8 +18,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import vn.com.travel.travelapp.Adapter.CategoryAdapter;
+import vn.com.travel.travelapp.Adapter.PopularAdapter;
+import vn.com.travel.travelapp.Adapter.RecommendedAdapter;
 import vn.com.travel.travelapp.Adapter.SliderAdapter;
 import vn.com.travel.travelapp.Domain.Category;
+import vn.com.travel.travelapp.Domain.ItemDomain;
 import vn.com.travel.travelapp.Domain.Location;
 import vn.com.travel.travelapp.Domain.SliderItems;
 import vn.com.travel.travelapp.R;
@@ -37,6 +40,62 @@ public class MainActivity extends BaseActivity {
         initLocation();
         initBanner();
         initCategory();
+        initRecommended();
+        initPopular();
+    }
+
+    private void initPopular() {
+        DatabaseReference myRef = database.getReference("Popular");
+        binding.progressBarPopular.setVisibility(View.VISIBLE);
+        ArrayList<ItemDomain> list = new ArrayList<>();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
+                        list.add(issue.getValue(ItemDomain.class));
+                    }
+                    if (!list.isEmpty()) {
+                        binding.recyclerViewPopular.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                        RecyclerView.Adapter adapter = new PopularAdapter(list);
+                        binding.recyclerViewPopular.setAdapter(adapter);
+                    }
+                    binding.progressBarPopular.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void initRecommended() {
+        DatabaseReference myRef = database.getReference("Item");
+        binding.progressBarRecommended.setVisibility(View.VISIBLE);
+        ArrayList<ItemDomain> list = new ArrayList<>();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
+                        list.add(issue.getValue(ItemDomain.class));
+                    }
+                    if (!list.isEmpty()) {
+                        binding.recyclerViewRecommended.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                        RecyclerView.Adapter adapter = new RecommendedAdapter(list);
+                        binding.recyclerViewRecommended.setAdapter(adapter);
+                    }
+                    binding.progressBarRecommended.setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void initCategory() {
@@ -88,7 +147,6 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-
     }
     private void banners(ArrayList<SliderItems> items){
         binding.viewPagerSlider.setAdapter(new SliderAdapter(items, binding.viewPagerSlider));
