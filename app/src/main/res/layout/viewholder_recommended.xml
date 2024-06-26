@@ -56,7 +56,7 @@
         app:srcCompat="@drawable/star" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgbarcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -70,10 +70,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="address"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbarcode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        app:layout_constraintStart_toEndOf="@+id/imgbarcode"
+        app:layout_constraintTop_toTopOf="@+id/imgbarcode" />
 
     <TextView
         android:id="@+id/priceTxt"
@@ -83,11 +83,11 @@
         android:textColor="@color/green"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imgbarcode"
         app:layout_constraintTop_toBottomOf="@+id/addressTxt" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/txtDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

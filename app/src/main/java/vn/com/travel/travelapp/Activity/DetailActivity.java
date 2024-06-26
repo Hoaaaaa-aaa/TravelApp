@@ -1,5 +1,6 @@
 package vn.com.travel.travelapp.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +44,9 @@ public class DetailActivity extends AppCompatActivity {
         binding.addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(DetailActivity.this,TicketActivity.class);
+                intent.putExtra("object", object);
+                startActivity(intent);
 
             }
         });
