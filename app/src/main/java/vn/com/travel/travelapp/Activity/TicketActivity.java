@@ -30,15 +30,16 @@ public class TicketActivity extends BaseActivity{
     private void setVariable(){
         Glide.with(TicketActivity.this)
                 .load(object.getPic())
-                .into(binding.pic);
+                .into(binding.imgView);
         Glide.with(TicketActivity.this)
-                .load(object.getTourGuide())
-                .into(binding.profile);
+                .load(object.getTourGuidePic())
+                .into(binding.imgavt);
         binding.btnback.setOnClickListener(v -> finish());;
         binding.txtTitle.setText(object.getTitle());
         binding.txtDuration.setText(object.getDuration());
         binding.txtTourGuide.setText(object.getDateTour());
-        binding.txtTime.setText(object.getTourGuideName());
+        binding.txtTime.setText(object.getTimeTour());
+        binding.txtName.setText(object.getTourGuideName());
         binding.btncall.setOnClickListener(v -> {
             Intent sendIntent=new Intent(Intent.ACTION_VIEW);
             sendIntent.setData(Uri.parse("sms:"+ object.getTourGuidePhone() ));
