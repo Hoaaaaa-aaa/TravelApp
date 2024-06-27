@@ -89,9 +89,9 @@ public class DetailActivity extends BaseActivity {
     private void setVariable() {
         try {
             binding.titleTxt.setText(object.getTitle());
-            binding.priceTxt.setText(object.getPrice());
+            binding.priceTxt.setText(String.valueOf(object.getPrice()));
             binding.backBtn.setOnClickListener(v -> finish());
-            binding.bedTxt.setText(object.getBed());
+            binding.bedTxt.setText(String.valueOf(object.getBed()));
             binding.durationTxt.setText(object.getDuration());
             binding.distanceTxt.setText(object.getDistance());
             binding.descriptionTxt.setText(object.getDescription());
@@ -118,10 +118,15 @@ public class DetailActivity extends BaseActivity {
     }
 
     private void getIntentExtra() {
-        object = (ItemDomain) getIntent().getSerializableExtra("object");
+//        object = (ItemDomain) getIntent().getSerializableExtra("object");
+        Intent intent = getIntent();
+        object = (ItemDomain) intent.getSerializableExtra("object");
         if (object == null) {
             Log.e("DetailActivity", "Error: object from intent is null");
             // Handle the case when object is null
+        }
+        else {
+            Log.d("DetailActivity", "Object from intent: " + object.toString());
         }
     }
 }

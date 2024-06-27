@@ -31,12 +31,13 @@ import vn.com.travel.travelapp.databinding.ActivityMainBinding;
 public class MainActivity extends BaseActivity {
 
     ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
+
         initLocation();
         initBanner();
         initCategory();
@@ -64,6 +65,7 @@ public class MainActivity extends BaseActivity {
                     binding.progressBarPopular.setVisibility(View.GONE);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -91,6 +93,7 @@ public class MainActivity extends BaseActivity {
                     binding.progressBarRecommended.setVisibility(View.GONE);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -106,11 +109,11 @@ public class MainActivity extends BaseActivity {
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    for (DataSnapshot issue:snapshot.getChildren()){
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
                         list.add(issue.getValue(Category.class));
                     }
-                    if (!list.isEmpty()){
+                    if (!list.isEmpty()) {
                         binding.recyclerViewCategory.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
                         RecyclerView.Adapter adapter = new CategoryAdapter(list);
                         binding.recyclerViewCategory.setAdapter(adapter);
@@ -132,8 +135,8 @@ public class MainActivity extends BaseActivity {
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for (DataSnapshot issue:snapshot.getChildren()){
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
                         list.add(issue.getValue(Location.class));
                     }
                     ArrayAdapter<Location> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.sp_item, list);
@@ -148,7 +151,8 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-    private void banners(ArrayList<SliderItems> items){
+
+    private void banners(ArrayList<SliderItems> items) {
         binding.viewPagerSlider.setAdapter(new SliderAdapter(items, binding.viewPagerSlider));
         binding.viewPagerSlider.setClipToPadding(false);
         binding.viewPagerSlider.setClipChildren(false);
@@ -160,15 +164,15 @@ public class MainActivity extends BaseActivity {
         binding.viewPagerSlider.setPageTransformer(compositePageTransformer);
     }
 
-    private void initBanner(){
+    private void initBanner() {
         DatabaseReference myRef = database.getReference("Banner");
         binding.progressBarBanner.setVisibility(View.VISIBLE);
         ArrayList<SliderItems> items = new ArrayList<>();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    for (DataSnapshot issue:snapshot.getChildren()){
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
                         items.add(issue.getValue(SliderItems.class));
                     }
                     banners(items);

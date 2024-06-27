@@ -21,6 +21,23 @@ public class ItemDomain implements Serializable {
     public ItemDomain() {
     }
 
+    public ItemDomain(String title, String address, String description, String pic, String duration, String timeTour, String dateTour, String tourGuideName, String tourGuidePhone, String tourGuidePic, int price, int bed, String distance, double score) {
+        this.title = title;
+        this.address = address;
+        this.description = description;
+        this.pic = pic;
+        this.duration = duration;
+        this.timeTour = timeTour;
+        this.dateTour = dateTour;
+        this.tourGuideName = tourGuideName;
+        this.tourGuidePhone = tourGuidePhone;
+        this.tourGuidePic = tourGuidePic;
+        this.price = price;
+        this.bed = bed;
+        this.distance = distance;
+        this.score = score;
+    }
+
     public String getTitle() {
         return title;
     }

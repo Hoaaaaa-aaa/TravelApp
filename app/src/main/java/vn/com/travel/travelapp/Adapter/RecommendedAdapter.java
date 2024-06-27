@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Toast.makeText(context, "Xin chao", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("object", items.get(position));
                 context.startActivity(intent);
