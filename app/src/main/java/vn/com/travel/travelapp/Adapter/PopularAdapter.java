@@ -1,6 +1,7 @@
 package vn.com.travel.travelapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import vn.com.travel.travelapp.Activity.DetailActivity;
 import vn.com.travel.travelapp.Domain.ItemDomain;
 import vn.com.travel.travelapp.databinding.ViewholderPopularBinding;
 import vn.com.travel.travelapp.databinding.ViewholderRecommendedBinding;
@@ -45,7 +47,9 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("object", items.get(position));
+                context.startActivity(intent);
             }
         });
     }
