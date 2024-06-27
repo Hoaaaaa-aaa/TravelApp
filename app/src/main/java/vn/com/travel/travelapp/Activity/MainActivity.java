@@ -1,8 +1,12 @@
 package vn.com.travel.travelapp.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,12 +35,38 @@ import vn.com.travel.travelapp.databinding.ActivityMainBinding;
 public class MainActivity extends BaseActivity {
 
     ActivityMainBinding binding;
-
+    ImageView bellPic;
+    TextView txtTourGuide1, txtTourGuide2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        bellPic = findViewById(R.id.bellPic);
+        txtTourGuide1 = findViewById(R.id.txtTourGuide1);
+        txtTourGuide2 = findViewById(R.id.txtTourGuide2);
+        bellPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Thông báo 1", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        txtTourGuide1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RecommendedListActivity.class);
+                startActivity(intent);
+            }
+        });
+        txtTourGuide2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PopularListActivity.class);
+                startActivity(intent);
+            }
+        });
 
         initLocation();
         initBanner();

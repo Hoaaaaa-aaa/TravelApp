@@ -26,13 +26,14 @@
                 android:layout_marginEnd="24dp">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/bellPic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/bell_icon" />
+                    app:srcCompat="@drawable/bell_icon"
+                    android:contentDescription="@string/bell_icon"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -170,7 +171,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/txtTourGuide1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="see all"
@@ -224,7 +225,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtTourGuide"
+                    android:id="@+id/txtTourGuide2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="see all"
