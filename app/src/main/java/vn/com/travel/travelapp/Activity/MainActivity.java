@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,9 +18,11 @@ import androidx.viewpager2.widget.MarginPageTransformer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import vn.com.travel.travelapp.Adapter.CategoryAdapter;
 import vn.com.travel.travelapp.Adapter.PopularAdapter;
@@ -36,7 +39,8 @@ public class MainActivity extends BaseActivity {
 
     ActivityMainBinding binding;
     ImageView bellPic;
-    TextView txtTourGuide1, txtTourGuide2;
+    TextView txtTourGuide1, txtTourGuide2, txtSearch;
+    EditText edtSearch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,22 @@ public class MainActivity extends BaseActivity {
         bellPic = findViewById(R.id.bellPic);
         txtTourGuide1 = findViewById(R.id.txtTourGuide1);
         txtTourGuide2 = findViewById(R.id.txtTourGuide2);
+        edtSearch = findViewById(R.id.edtSearch);
+        txtSearch = findViewById(R.id.txtid);
+
+        txtSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String query = edtSearch.getText().toString().trim();
+
+                if (!query.isEmpty()) {
+                    searchPopularItems(query);
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter a search term", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         bellPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +93,38 @@ public class MainActivity extends BaseActivity {
         initCategory();
         initRecommended();
         initPopular();
+    }
+
+    private void searchPopularItems(String query) {
+        DatabaseReference myRef = database.getReference("Popular");
+
+        Query searchQuery = myRef.child("Popular").orderByChild("title").equalTo(query);
+
+        searchQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<String> results = new ArrayList<>();
+                for (DataSnapshot issue: dataSnapshot.getChildren()) {
+                    String title = issue.child("title").getValue(String.class);
+                    results.add(title);
+                }
+
+                if (results.isEmpty()) {
+                    edtSearch.setHint("No results found");
+                } else {
+                    StringBuilder resultText = new StringBuilder();
+                    for (String result : results) {
+                        resultText.append(result).append("\n");
+                    }
+                    edtSearch.setText(resultText.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void initPopular() {
