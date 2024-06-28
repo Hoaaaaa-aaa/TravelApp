@@ -50,21 +50,6 @@ public class MainActivity extends BaseActivity {
         bellPic = findViewById(R.id.bellPic);
         txtTourGuide1 = findViewById(R.id.txtTourGuide1);
         txtTourGuide2 = findViewById(R.id.txtTourGuide2);
-        edtSearch = findViewById(R.id.edtSearch);
-        txtSearch = findViewById(R.id.txtid);
-
-        txtSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String query = edtSearch.getText().toString().trim();
-
-                if (!query.isEmpty()) {
-                    searchPopularItems(query);
-                } else {
-                    Toast.makeText(MainActivity.this, "Please enter a search term", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
         bellPic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,38 +78,6 @@ public class MainActivity extends BaseActivity {
         initCategory();
         initRecommended();
         initPopular();
-    }
-
-    private void searchPopularItems(String query) {
-        DatabaseReference myRef = database.getReference("Popular");
-
-        Query searchQuery = myRef.child("Popular").orderByChild("title").equalTo(query);
-
-        searchQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> results = new ArrayList<>();
-                for (DataSnapshot issue: dataSnapshot.getChildren()) {
-                    String title = issue.child("title").getValue(String.class);
-                    results.add(title);
-                }
-
-                if (results.isEmpty()) {
-                    edtSearch.setHint("No results found");
-                } else {
-                    StringBuilder resultText = new StringBuilder();
-                    for (String result : results) {
-                        resultText.append(result).append("\n");
-                    }
-                    edtSearch.setText(resultText.toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     private void initPopular() {

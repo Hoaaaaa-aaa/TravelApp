@@ -34,6 +34,7 @@ public class RecommendedListActivity extends BaseActivity {
 
     private void initRecommended() {
         DatabaseReference myRef = database.getReference("Item");
+        binding.backBtn.setOnClickListener(v -> finish());
         binding.progressBarList.setVisibility(View.VISIBLE);
         ArrayList<ItemDomain> list = new ArrayList<>();
 
