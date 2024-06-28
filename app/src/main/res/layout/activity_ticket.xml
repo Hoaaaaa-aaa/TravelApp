@@ -20,7 +20,7 @@
                 android:id="@+id/view"
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
-                android:background="#7EA00E"
+                android:background="@color/green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -79,7 +79,7 @@
                         android:background="@drawable/light_bg"
                         android:text="Upcoming trip"
                         android:textAlignment="center"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -89,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Order Id:270803"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -112,19 +112,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="Title"
-                    android:textColor="#1F4F59"
+                    android:text="title"
+                    android:textColor="@color/darkGreen"
                     android:textSize="24dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/t1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="10dp"
                     android:text="Show this ticket to the your guide before departure"
-                    android:textColor="#1F4F59"
+                    android:textColor="@color/darkGreen"
                     android:textSize="15sp"
 
                     />
@@ -139,7 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tour Guide"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -149,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="20 June 2024"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -160,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="50dp"
                         android:text="Time"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/textView9" />
 
@@ -169,7 +169,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="9:00 AM"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/textView10"
                         app:layout_constraintTop_toTopOf="@+id/txtTourGuide" />
@@ -180,7 +180,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:text="Tip Duration"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         app:layout_constraintStart_toStartOf="@+id/txtTourGuide"
                         app:layout_constraintTop_toBottomOf="@+id/txtTourGuide" />
 
@@ -190,7 +190,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="2D-1N"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/textView12"
                         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -201,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:text="Total Guest"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         app:layout_constraintStart_toStartOf="@+id/txtTime"
                         app:layout_constraintTop_toBottomOf="@+id/txtTime" />
 
@@ -211,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="5"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/textView14"
                         app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -241,7 +241,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="Tour Guide"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         app:layout_constraintStart_toEndOf="@+id/imgavt"
                         app:layout_constraintTop_toTopOf="@+id/imgavt" />
 
@@ -251,7 +251,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="name"
-                        android:textColor="#1F4F59"
+                        android:textColor="@color/darkGreen"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/imgavt"
                         app:layout_constraintStart_toEndOf="@+id/imgavt" />

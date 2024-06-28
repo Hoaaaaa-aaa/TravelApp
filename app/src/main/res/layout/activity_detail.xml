@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.DetailActivity">
@@ -10,15 +11,16 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-104dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="50dp"
-            >
+            android:paddingBottom="50dp">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,17 +55,17 @@
                         android:layout_marginTop="48dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/baseline_arrow_back_24" />
+                        app:srcCompat="@drawable/back" />
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="24dp"
                         app:layout_constraintBottom_toBottomOf="@+id/backBtn"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/backBtn"
-                        app:srcCompat="@drawable/favourite_icon" />
+                        app:srcCompat="@drawable/fav_icon" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -89,9 +91,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="24dp"
-                            android:text="Title"
+                            android:text="title"
                             android:textAlignment="center"
-                            android:textColor="#1F4F59"
+                            android:textColor="@color/darkGreen"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -105,18 +107,18 @@
                                 android:id="@+id/imgbarcode"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                app:srcCompat="@drawable/location_icon" />
+                                app:srcCompat="@drawable/location" />
 
                             <TextView
                                 android:id="@+id/addressTxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
                                 android:layout_weight="1"
-                                android:text="Address"
-                                android:textColor="#1F4F59"
-                                android:textSize="18dp"
-                                android:textStyle="italic" />
+                                android:text="address"
+                                android:textColor="@color/darkGreen"
+                                android:textSize="18dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -150,7 +152,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="0"
-                                android:textColor="#1F4F59"
+                                android:textColor="@color/darkGreen"
                                 android:textSize="16sp" />
                         </LinearLayout>
 
@@ -159,7 +161,7 @@
                             android:layout_height="80dp"
                             android:layout_marginStart="24dp"
                             android:layout_marginEnd="24dp"
-                            android:background="#EAF4EA"
+                            android:background="@drawable/grey_bg_corner"
 
                             android:orientation="horizontal">
 
@@ -174,7 +176,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:text="- min"
-                                    android:textColor="#1F4F59"
+                                    android:textColor="@color/darkGreen"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -188,7 +190,7 @@
                                     app:layout_constraintBottom_toBottomOf="@+id/durationTxt"
                                     app:layout_constraintEnd_toStartOf="@+id/durationTxt"
                                     app:layout_constraintTop_toTopOf="@+id/durationTxt"
-                                    app:srcCompat="@drawable/hourglasses_icon" />
+                                    app:srcCompat="@drawable/hourglass" />
 
                                 <TextView
 
@@ -196,7 +198,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
                                     android:text="Duration"
-                                    android:textColor="#1F4F59"
+                                    android:textColor="@color/darkGreen"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintHorizontal_bias="0.401"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -211,7 +213,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
                                 android:layout_weight="0"
-                                android:background="@android:color/holo_blue_bright" />
+                                android:background="@color/green" />
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="0dp"
@@ -224,7 +226,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:text="0"
-                                    android:textColor="#1F4F59"
+                                    android:textColor="@color/darkGreen"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -238,7 +240,7 @@
                                     app:layout_constraintBottom_toBottomOf="@+id/distanceTxt"
                                     app:layout_constraintEnd_toStartOf="@+id/distanceTxt"
                                     app:layout_constraintTop_toTopOf="@+id/distanceTxt"
-                                    app:srcCompat="@drawable/distance_icon" />
+                                    app:srcCompat="@drawable/distance" />
 
                                 <TextView
 
@@ -246,7 +248,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
                                     android:text="Distance"
-                                    android:textColor="#1F4F59"
+                                    android:textColor="@color/darkGreen"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintHorizontal_bias="0.401"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -261,7 +263,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
                                 android:layout_weight="0"
-                                android:background="@android:color/holo_blue_bright" />
+                                android:background="@color/green" />
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="0dp"
@@ -274,7 +276,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:text="0"
-                                    android:textColor="#1F4F59"
+                                    android:textColor="@color/darkGreen"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -288,7 +290,7 @@
                                     app:layout_constraintBottom_toBottomOf="@+id/bedTxt"
                                     app:layout_constraintEnd_toStartOf="@+id/bedTxt"
                                     app:layout_constraintTop_toTopOf="@+id/bedTxt"
-                                    app:srcCompat="@drawable/bed_icon" />
+                                    app:srcCompat="@drawable/bed" />
 
                                 <TextView
 
@@ -296,7 +298,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
                                     android:text="Bed"
-                                    android:textColor="#1F4F59"
+                                    android:textColor="@color/darkGreen"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintHorizontal_bias="0.401"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -314,7 +316,7 @@
                             android:layout_marginStart="24dp"
                             android:layout_marginTop="16dp"
                             android:text="Description"
-                            android:textColor="#1F4F59"
+                            android:textColor="@color/darkGreen"
                             android:textSize="18dp"
                             android:textStyle="italic" />
 
@@ -326,7 +328,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="24dp"
                             android:text="Due to the year-round cool weather, visitors to Dalat can do both visiting and enjoying specialties including a variety of fruits. The beauty of Dalat is also praised and attractes visitors by hundreds, thousands of unique flowers, orchids."
-                            android:textColor="#1F4F59"
+                            android:textColor="@color/darkGreen"
                             android:textSize="14dp" />
 
                     </LinearLayout>
@@ -341,21 +343,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:background="#EAF4EA"
+        android:background="@color/lightGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addToCartBtn"
+            style="@android:style/Widget.Button"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
+            android:background="@drawable/green_bg"
             android:text="Add to cart"
-            style="@android:style/Widget.Button"
-            android:textColor="#1F4F59"
-            android:textSize="20dp"
-            android:background="#3399FF"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -366,8 +368,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:text="$000"
-            android:textColor="#1F4F59"
-            android:textSize="30dp"
+            android:textColor="@color/darkGreen"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -377,11 +379,10 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="5dp"
-            android:textColor="#1F4F59"
-            android:textSize="14dp"
-            android:hint=" /Person"
+            android:text=" /Person"
+            android:textColor="@color/darkGreen"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/priceTxt"
             app:layout_constraintStart_toEndOf="@+id/priceTxt"
             app:layout_constraintTop_toTopOf="@+id/priceTxt" />
