@@ -40,13 +40,13 @@ public class TicketActivity extends BaseActivity{
         binding.txtTourGuide.setText(object.getDateTour());
         binding.txtTime.setText(object.getTimeTour());
         binding.txtName.setText(object.getTourGuideName());
-        binding.btncall.setOnClickListener(v -> {
+        binding.btnmess.setOnClickListener(v -> {
             Intent sendIntent=new Intent(Intent.ACTION_VIEW);
             sendIntent.setData(Uri.parse("sms:"+ object.getTourGuidePhone() ));
             sendIntent.putExtra("sms_body", "type your message");
             startActivity(sendIntent);
         });
-        binding.btnmess.setOnClickListener(v -> {
+        binding.btncall.setOnClickListener(v -> {
             String phone=object.getTourGuidePhone();
             Intent intent=new Intent(Intent.ACTION_DIAL,Uri.fromParts("tel", phone,null));
             startActivity(intent);
